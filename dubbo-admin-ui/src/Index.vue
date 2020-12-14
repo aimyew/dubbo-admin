@@ -42,6 +42,11 @@
       }
     },
     created () {
+      if (localStorage.getItem('token')) {
+        console.info('has token')
+      } else {
+        window.getApp.$router.replace('/login')
+      }
       window.getApp = this
       window.getApp.$on('APP_LOGOUT', () => {
         console.log('logout')
